@@ -45,20 +45,3 @@ export class UsersService {
     };
   }
 }
-//   async getUser(request: Request): Promise<UserOutputDto> {
-//     try {
-//       const cookie = request.cookies['jwt'];
-//       const data = await this.jwtService.verifyAsync(cookie, {
-//         secret: process.env.SECRET_KEY,
-//       });
-
-//       if (!data) throw new UnauthorizedException();
-//       const user = await this.usersRepository.findOneBy({
-//         id: data['id'],
-//       });
-//       return this.mapper.map(user, UserOutputDto);
-//     } catch {
-//       throw new UnauthorizedException();
-//     }
-//   }
-// }

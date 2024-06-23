@@ -3,6 +3,7 @@ import { Mapped } from '../../base/utils/mapper/mapper.decorator';
 import mongoose, { ObjectId } from 'mongoose';
 import { IsString } from 'class-validator';
 import { CreateTodoItemDto } from './todo-item.dto';
+import { TodoItem } from '../../domain/schemas/todoItem.schema';
 
 export class TodoInputDto {
   @MinLength(3)
