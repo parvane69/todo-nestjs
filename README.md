@@ -8,7 +8,7 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-
+<b> I Added swagger to this project and after run you should open this http://localhost:3002/api/docs </b>
 <b>Surely this project could be better in architecture, I should add mapper , validation and ... </b>
 
 
