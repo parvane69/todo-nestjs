@@ -21,7 +21,6 @@ describe('Todo API Tests (e2e)', () => {
       .send({ userName: 'shahan', password: '123456' })
       .expect(201)
       .expect('Content-Type', /json/);
-    console.log(response);
     expect(response.body).toHaveProperty('token');
   });
 
