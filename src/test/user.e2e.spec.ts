@@ -18,19 +18,28 @@ describe('Todo API Tests (e2e)', () => {
   it('should authenticate user with correct credentials', async () => {
     const response = await request(app.getHttpServer())
       .post('/users/login')
-      .send({ userName: 'shahan', password: '123456' })
+      .send({ userName: 'testUser', password: '123456' })
       .expect(201)
       .expect('Content-Type', /json/);
     expect(response.body).toHaveProperty('token');
   });
 
-  it('should not authenticate user with incorrect credentials', async () => {
+  it('should not authenticate user with incorrect password', async () => {
     const response = await request(app.getHttpServer())
       .post('/users/login')
-      .send({ userName: 'shahan', password: 'wrongpass' })
+      .send({ userName: 'testUser', password: 'wrongpass' })
       .expect(404);
 
     expect(response.body).toHaveProperty('message', 'password is wrong');
+  });
+
+  it('should not authenticate user with incorrect userName', async () => {
+    const response = await request(app.getHttpServer())
+      .post('/users/login')
+      .send({ userName: 'testUser222', password: '123456' })
+      .expect(404);
+
+    expect(response.body).toHaveProperty('message', 'User not found');
   });
 
   afterAll(async () => {

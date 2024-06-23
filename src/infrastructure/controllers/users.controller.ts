@@ -10,7 +10,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UsersService } from '../../application/users/users.service';
 import {
   UserRegistrationInputDto,
@@ -21,6 +21,7 @@ import {
 import { AuthGuard } from '../../shared/gaurd/jwt/auth.guard';
 
 @Controller('users')
+@ApiTags('Users')
 @UsePipes(new ValidationPipe())
 export class UsersController {
   constructor(private usersService: UsersService) {}

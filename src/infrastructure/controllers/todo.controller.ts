@@ -11,7 +11,7 @@ import {
   Put,
   Delete,
 } from '@nestjs/common';
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from '../../shared/gaurd/jwt/auth.guard';
 import { TodosService } from '../../application/todos/todos.service';
 import {
@@ -27,6 +27,7 @@ import {
 } from '../../shared/dtos/todo-item.dto';
 
 @Controller('todos')
+@ApiTags('Todos')
 @UsePipes(new ValidationPipe())
 export class TodosController {
   constructor(private todosService: TodosService) {}

@@ -6,6 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './infrastructure/controllers/users.module';
 import { TodosModule } from './infrastructure/controllers/todos.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
+import { SeedsModule } from './seeds/seeds.module';
 
 @Module({
   imports: [
@@ -16,11 +17,9 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
       secret: process.env.SECRET_KEY,
       signOptions: { expiresIn: '1d' },
     }),
+    SeedsModule,
     UsersModule,
     TodosModule,
-    //SeedsModule,
-    //CategoriesModule,
-    //AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
